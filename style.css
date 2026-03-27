@@ -1,0 +1,1042 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap');:root {
+    --color-white-one: #e2e2e2;
+    --color-blue-one: #21b6c6;
+    --color-abu-one: #d9e1f1;
+    --color-abu-two: #7b7b7b;
+    --color-abu-three: #414141;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: var(--color-white-one);
+}
+
+/* NAVBAR UTAMA */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    height: 7rem;
+    background: white;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* Sangat tinggi agar di atas segalanya */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar__logo a {
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--color-abu-two);
+}
+
+.navbar__logo span { color: var(--color-blue-one); }
+
+/* MENU DESKTOP */
+.navbar__menu {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar__link {
+    text-decoration: none;
+    color: var(--color-blue-one);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.navbar__btn-mobile { display: none; }
+
+/* TOMBOL RESERVASI DESKTOP */
+.reservation a {
+    text-decoration: none;
+    background: var(--color-blue-one);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+/* TOMBOL MENU (MOBILE ONLY) */
+.menu-simple-btn {
+    display: none;
+    background: none;
+    color: var(--color-blue-one);
+    padding: 5px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+
+    font-size: 40px;
+    align-items: center;
+}
+
+/* OVERLAY (INILAH YANG MENUTUPI SEMUA SECTION) */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); /* Hitam transparan */
+    z-index: 9997; /* Di bawah navbar, tapi di atas section lain */
+    display: none; /* Sembunyi default */
+}
+
+.nav-overlay.active {
+    display: block;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 1010px) {
+    .navbar { padding: 0 5%; }
+    .navbar__menu {
+        position: fixed;
+        top: 7rem;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        z-index: 9998;
+        display: none; /* Sembunyi */
+        border-top: 1px solid #eee;
+    }
+
+    .navbar__menu.active {
+        display: flex;
+    }
+
+    .menu-simple-btn { display: block; }
+    .reservation { display: none; }
+    .navbar__btn-mobile { 
+        display: block; 
+        text-align: center;
+        background: var(--color-blue-one);
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        text-decoration: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .navbar__logo a {
+        font-size: 16px;
+    }
+
+}
+
+/* hero-section */
+
+.hero-section {
+    max-height: 90vh;
+
+    background:
+    linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0)),
+    url("oli-woodman-f4jsI88K7ds-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    color: white;
+
+}
+
+.hero-section-cover {
+    max-width: 900px;
+    margin: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-section-cover h3 {
+    font-size: clamp(15px, 5vw, 25px);
+}
+
+.hero-section-cover h1 {
+    font-size: clamp(25px, 5vw, 60px);
+    font-weight: 600;
+}
+
+.hero-section-cover p {
+    font-size: clamp(10px, 5vw, 20px);
+}
+
+.hero-section-btn {
+    margin-top: 5rem;
+}
+
+.hero-section-cover a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem 2rem;
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+/* hero-responsive */
+@media(max-width: 500px) {
+    .hero-section-cover p {
+        font-size: 15px;
+    }
+}
+
+
+/* @media (max-width: 768px) {
+    .hero-section-cover h3 {
+        font-size: 20px;
+    }
+
+
+
+} */
+
+/* about-section */
+
+.about-section {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 5%;
+    gap: 4rem;
+    width: 100%;
+    min-height: 80vh;
+}
+
+.about-section-left-side-img {
+    width: clamp(250px, 35vw, 500px); 
+    height: clamp(300px, 45vw, 600px); 
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.about-section-left-side-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.about-section-left-side
+.about-section-left-side-img img:hover {
+    transform: scale(1.05);
+}
+
+
+.about-section-right-side {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--color-blue-one);
+}
+
+.about-section-right-side h1 {
+    font-size: clamp(1rem, 5vw, 50px); 
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 800; /* 1000 terlalu besar, standar max 900 atau pakai bold/extrabold */
+}
+
+.about-section-right-side p {
+    font-size: clamp( 5px, 5vw, 16px); 
+    
+}
+
+.about-section-right-side a {
+    border: none;
+    background: var(--color-blue-one);
+    padding: .5rem 1rem;
+    border-radius: 50px;
+    color: white;
+    font-size: clamp( 5px, 5vw, 16px);
+    cursor: pointer;
+
+
+}
+
+
+/* about-section-responsive */ 
+@media (max-width: 1090px) {
+    .about-section {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .about-section-right-side {
+        text-align: center;
+    }
+
+    .about-section-right-side a {
+        align-self: center;
+    }
+}
+
+/* =================================================
+   SERVICES SECTION - MODERN RESPONSIVE REFINEMENT
+   ================================================= */
+
+.services-section {
+    min-height: 100vh;
+    padding: clamp(2rem, 8vw, 5rem) 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+.services-big-head,
+.services-cards {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-head {
+    display: flex;
+    justify-content: space-between;
+    gap: clamp(1rem, 5vw, 9rem);
+    margin-bottom: 3rem;
+    color: var(--color-abu-three);
+    align-items: center;
+}
+
+.services-head p {
+    max-width: 600px;
+}
+
+/* --- GRID SYSTEM --- */
+.services-cards {
+    display: grid;
+    /* Desktop default: 3 columns */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+/* --- CARD COMPONENT --- */
+.services-card {
+    background: white;
+    /* Responsive Padding & Border Radius */
+    padding: clamp(1.2rem, 3vw, 2rem);
+    border-radius: clamp(12px, 2vw, 20px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    /* Spacing between elements inside card */
+    gap: clamp(0.8rem, 2vw, 1.5rem); 
+    width: 100%;
+    min-height: clamp(200px, 40vh, 350px);
+}
+
+.services-card i {
+    font-size: clamp(30px, 5vw, 50px);
+    color: var(--color-blue-one);
+    transition: color 0.3s;
+}
+
+.services-card h3 {
+    font-size: clamp(1.1rem, 2.5vw, 25px);
+    font-weight: 700;
+    color: var(--color-abu-three);
+    line-height: 1.2;
+}
+
+.services-card p {
+    font-size: clamp(0.85rem, 1.5vw, 15px);
+    color: var(--color-abu-three);
+    line-height: 1.5;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet Optimization (<= 1024px) */
+@media (max-width: 1024px) {
+    .services-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .services-head {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .services-head p {
+        max-width: 100%;
+    }
+}
+
+/* Mobile Optimization (<= 600px) */
+@media (max-width: 600px) {
+    .services-section {
+        padding: 3rem 5%; /* Slightly wider on mobile */
+    }
+
+    .services-cards {
+        /* FIXED 2 COLUMNS ON MOBILE */
+        grid-template-columns: repeat(1, 1fr);
+
+        gap: 0.8rem; /* Tighter gap */
+    }
+
+    .services-card {
+        padding: 1rem; 
+        min-height: auto; 
+        justify-content: flex-start;
+        gap: 0.6rem;
+    }
+
+    .services-card hr {
+        margin: 0.2rem 0;
+    }
+
+    .services-card i {
+        margin-bottom: 0.2rem;
+    }
+}
+
+/* Hover States (Keep consistent) */
+.services-card:hover {
+    background: var(--color-blue-one);
+    transform: translateY(-5px);
+}
+
+.services-card:hover h3, 
+.services-card:hover p,
+.services-card:hover i {
+    color: white;
+}
+
+.services-card:hover hr {
+    background: white;
+}
+
+
+/* =========================
+   LOCATIONS SECTION
+========================= */
+
+.locations-section {
+    padding: 5rem 5%;
+    background: transparent;
+}
+
+/* HEADER */
+.locations-header {
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.locations-header h1 {
+    font-size: 42px;
+    font-family:  sans-serif;
+    color: var(--color-abu-three);
+}
+
+/* BUTTON ALL */
+.btn-all {
+    text-decoration: none;
+    padding: 0.6rem 1.6rem;
+    background: var(--color-blue-one);
+    color: white;
+    border-radius: 30px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-all:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* GRID */
+.locations-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax( 150px, 3fr));
+    gap: 1.2rem;
+}
+
+/* CARD */
+.location-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+
+/* IMAGE */
+.location-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s ease;
+}
+
+/* OVERLAY */
+.location-card .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.4),
+        transparent
+    );
+}
+
+/* CONTENT */
+.location-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.location-content h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.location-content p {
+    font-size: 13px;
+    opacity: 0.85;
+    line-height: 1.4;
+}
+
+/* BUTTON PER CARD */
+.btn-location {
+    margin-top: 0.6rem;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-size: 12px;
+    width: fit-content;
+    transition: 0.3s;
+}
+
+.btn-location:hover {
+    background: white;
+    color: black;
+}
+
+/* HOVER EFFECT */
+.location-card:hover img {
+    transform: scale(1.1);
+}
+
+/* OPTIONAL: BIAR ADA PEMISAH KAYAK REFERENSI */
+.location-card:not(:last-child) {
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .locations-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .locations-header h1 {
+        font-size: 32px;
+    }
+}
+
+/* TESTIMONIALS-SECTION */
+.testimonials-section {
+    padding: 4rem 15%;
+    background: transparent;
+    min-height: 60vh;
+}
+
+.testimonials-header {
+    margin-bottom: 5rem;
+}
+
+.testimonials-header h1 {
+    font-size: 42px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-abu-three);
+}
+
+/* WRAPPER & TRACK */
+.testimonials-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Fading Gradients */
+.testimonials-wrapper::before,
+.testimonials-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.testimonials-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #e2e2e2, transparent);
+}
+
+.testimonials-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #e2e2e2, transparent);
+}
+
+.testimonials-track {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    padding: 1rem 0;
+    cursor: grab;
+    user-select: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.testimonials-track::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.testimonials-track.active {
+    cursor: grabbing;
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+}
+
+/* CARD */
+.testimonial-card {
+    flex: 0 0 300px; /* Base width */
+    padding: 1.5rem;
+    border-radius: 30px;
+    background: var(--color-blue-one);
+    color: #fff;
+    position: relative;
+    scroll-snap-align: center;
+    pointer-events: none; /* Prevent interference while dragging */
+}
+
+/* Re-enable pointer events for inner content if needed */
+.testimonial-card * {
+    pointer-events: auto;
+}
+
+/* PROFILE & CONTENT */
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.profile img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.profile-info .role { 
+    font-size: 11px; opacity: 0.7; 
+}
+.profile-info .name { 
+    font-size: 14px; font-weight: 600;
+ }
+
+.quote-content { position: relative; }
+.quote-mark { position: absolute; top: -10px; left: 0; font-size: 30px; font-weight: bold; }
+.quote-text { font-size: 14px; font-weight: 600; line-height: 1.4; padding-left: 18px; }
+
+.badge {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 15px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .testimonials-section { padding: 4rem 5%; }
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        flex: 0 0 80%; 
+    }
+    .testimonials-wrapper::before,
+    .testimonials-wrapper::after {
+        width: 40px;
+    }
+}
+
+/* 4. MOBILE: STACKED LAYOUT (max-width: 576px) */
+@media (max-width: 576px) {
+    .testimonials-track {
+        grid-template-columns: 1fr; /* 1 Column */
+        gap: 1.2rem;
+        padding: 0 15px;
+    }
+    
+    .testimonials-header h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+}
+
+/* =========================
+   BOOKING FORM CSS
+========================= */
+
+.booking-section {
+    padding: 6rem 10%;
+    background: var(--color-white-one);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking-container {
+    width: 100%;
+    max-width: 850px;
+}
+
+.booking-card {
+    background: #ffffff;
+    padding: 3rem 4rem;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+}
+
+.booking-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.booking-header h1 {
+    font-size: 38px;
+    color: var(--color-abu-three);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.booking-header p {
+    color: var(--color-abu-two);
+    font-size: 16px;
+    max-width: 550px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--color-abu-three);
+    font-size: 14px;
+    margin-left: 4px;
+}
+
+.form-group input, 
+.form-group textarea, 
+.form-group select {
+    background: #f4f7f9;
+    border: 2px solid transparent;
+    padding: 1rem 1.2rem;
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--color-abu-three);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Interaction States */
+.form-group input:hover, 
+.form-group textarea:hover, 
+.form-group select:hover {
+    background: #edf1f4;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus, 
+.form-group select:focus {
+    background: #ffffff;
+    border-color: var(--color-blue-one);
+    box-shadow: 0 0 0 4px rgba(33, 182, 198, 0.1);
+}
+
+/* Custom Select Dropdown */
+.select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.select-wrapper select {
+    width: 100%;
+    appearance: none;
+    cursor: pointer;
+    padding-right: 3rem;
+}
+
+.select-wrapper i {
+    position: absolute;
+    right: 1.2rem;
+    color: var(--color-blue-one);
+    pointer-events: none;
+    font-size: 14px;
+}
+
+/* Submit Button Style */
+.btn-pickup {
+    margin-top: 1.5rem;
+    background: var(--color-blue-one);
+    color: white;
+    border: none;
+    padding: 1.2rem;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-pickup:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(33, 182, 198, 0.3);
+    background: #1ca3b1;
+}
+
+.btn-pickup:active {
+    transform: translateY(-2px);
+}
+
+/* Responsive Handling */
+@media (max-width: 768px) {
+    .booking-card {
+        padding: 2.5rem 2rem;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+    
+    .booking-header h1 {
+        font-size: 30px;
+    }
+
+    .booking-section {
+        padding: 4rem 5%;
+    }
+}
+
+/* =========================
+   FOOTER STYLES
+========================= */
+
+.main-footer {
+    background: rgba(255, 255, 255, 0.6); /* Matches your navbar transparency */
+    padding: 4rem 10% 2rem 10%;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Emphasis on brand column */
+    gap: 3rem;
+}
+
+.footer-logo {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-abu-two);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.footer-logo span {
+    color: var(--color-blue-one);
+}
+
+.footer-desc {
+    color: var(--color-abu-two);
+    line-height: 1.6;
+    font-size: 15px;
+    max-width: 300px;
+}
+
+.footer-col h4 {
+    color: var(--color-abu-three);
+    font-size: 18px;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--color-abu-two);
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--color-blue-one);
+    padding-left: 5px; /* Subtle interaction */
+}
+
+.footer-contact p {
+    color: var(--color-abu-two);
+    font-size: 15px;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-contact i {
+    color: var(--color-blue-one);
+    width: 20px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 3rem auto 0 auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: var(--color-abu-two);
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* Responsive Footer */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-desc {
+        margin: 0 auto;
+    }
+
+    .footer-links a:hover {
+        padding-left: 0;
+    }
+
+    .footer-contact p {
+        justify-content: center;
+    }
+}
+
+/* animation */
+
+
+
