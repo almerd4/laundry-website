@@ -37,6 +37,9 @@ This website is suitable for:
 * Small service-based businesses
 * Landing pages for local services
 
+## WhatsApp Booking Message Preview
+![WhatsApp Message Preview](whatsapp-preview-example.png)
+
 ## Author
 
 Created by Almerd
